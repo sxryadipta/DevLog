@@ -1,7 +1,3 @@
-# GitHub Repository Analyzer
+#  DevLog — A Developer Activity Dashboard
 
-A minimal React + Node.js tool that fetches and displays key insights from any public GitHub repository.  
-Currently supports repository summary, language breakdown, top contributors, and last commit info.  
-
-**Status:** Backend functional, frontend under development  
-**Tech:** React, Parcel, Node.js, Express, GitHub REST API
+A platform where developers connect their GitHub account and get a real-time, analytics-style dashboard of their coding activity — streaks, commit heatmaps, most-used languages, and live notifications when a repo gets starred. 

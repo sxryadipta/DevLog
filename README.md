@@ -42,7 +42,7 @@ Learning objectives:
 
 ## Roadmap
 
-The build is divided into **15 sequential GitHub Issues**, each targeting a specific concept. They are designed to be tackled one at a time — each issue builds directly on the last.
+The build is divided into **13 sequential GitHub Issues**, each targeting a specific concept. They are designed to be tackled one at a time — each issue builds directly on the last.
 
 ---
 
@@ -94,17 +94,10 @@ Add a login and signup system. Users connect their GitHub username on signup. JW
 
 ---
 
-#### Issue #6 — Role-Based Authorization + Public Profile URL
-**Concepts:** Authorization, roles  
-Add two roles: `owner` (full private stats) and `viewer` (read-only). Implement a public shareable profile at `GET /user/:username` that any visitor can see without logging in. Protect owner-only routes with an `authorize` middleware.
-
-**Deliverable:** `src/middleware/authorize.js`, `GET /user/:username`
-
----
 
 ### Phase 5 — File Uploads
 
-#### Issue #7 — Avatar Upload with Multer
+#### Issue #6 — Avatar Upload with Multer
 **Concepts:** Multer, multipart form data  
 Let users upload a profile picture stored to disk via `POST /profile/avatar`. Validate file type (images only) and size. _(Bonus: swap local disk storage for Cloudinary — worth adding to your resume.)_
 
@@ -114,7 +107,7 @@ Let users upload a profile picture stored to disk via `POST /profile/avatar`. Va
 
 ### Phase 6 — Real-Time
 
-#### Issue #8 — Live Activity Feed with WebSockets
+#### Issue #7 — Live Activity Feed with WebSockets
 **Concepts:** WebSockets, `ws` library  
 Add a live activity feed panel to the dashboard. Poll the GitHub API every 30 seconds for new star events. When a new star is detected, push a real-time notification to all connected clients over WebSockets.
 
@@ -124,7 +117,7 @@ Add a live activity feed panel to the dashboard. Poll the GitHub API every 30 se
 
 ### Phase 7 — Streams
 
-#### Issue #9 — CSV Export with Node Transform Streams
+#### Issue #8 — CSV Export with Node Transform Streams
 **Concepts:** Node.js Streams, Transform streams  
 Add a `GET /export/commits` endpoint that streams the user's full commit history as a downloadable CSV. Use a `Transform` stream to convert raw data to CSV format — no loading everything into memory at once.
 
@@ -134,7 +127,7 @@ Add a `GET /export/commits` endpoint that streams the user's full commit history
 
 ### Phase 8 — Scalability
 
-#### Issue #10 — Cluster Mode Entry Point
+#### Issue #9 — Cluster Mode Entry Point
 **Concepts:** Node.js Cluster module, CPU cores  
 Add a `cluster.js` entry point that spawns one worker per CPU core using the `cluster` module. Workers share the same port. Document in the README why this matters for production Node.js applications.
 
@@ -144,7 +137,7 @@ Add a `cluster.js` entry point that spawns one worker per CPU core using the `cl
 
 ### Phase 9 — GraphQL (Parallel API Layer)
 
-#### Issue #11 — GraphQL Schema, Queries + Resolvers
+#### Issue #10 — GraphQL Schema, Queries + Resolvers
 **Concepts:** GraphQL schema definition, queries, resolvers  
 Add a `/graphql` endpoint alongside your existing REST routes. Define a `Query { user(username: String!): User }` type. Wire resolvers to the same Mongoose models that power your REST API. Both APIs now coexist on the same server.
 
@@ -152,7 +145,7 @@ Add a `/graphql` endpoint alongside your existing REST routes. Define a `Query {
 
 ---
 
-#### Issue #12 — GraphQL Mutations for Profile Updates
+#### Issue #11 — GraphQL Mutations for Profile Updates
 **Concepts:** GraphQL mutations, MongoDB writes  
 Replace the REST `POST /profile` and `PUT /profile/github` routes with GraphQL mutations — `updateProfile` and `linkGitHub`. Demonstrate in the README that the same Mongoose models back both REST and GraphQL.
 
@@ -160,7 +153,7 @@ Replace the REST `POST /profile` and `PUT /profile/github` routes with GraphQL m
 
 ---
 
-#### Issue #13 — Migrate to Apollo Server
+#### Issue #12 — Migrate to Apollo Server
 **Concepts:** Apollo Server, Express integration  
 Swap the basic `express-graphql` setup for Apollo Server integrated with Express. This gives you the **Apollo Sandbox explorer** at `/graphql` (like Postman for GraphQL). Include a screenshot of the Sandbox in your README — it's a great visual for your portfolio.
 
@@ -168,7 +161,7 @@ Swap the basic `express-graphql` setup for Apollo Server integrated with Express
 
 ---
 
-#### Issue #14 — GraphQL Subscriptions: Live Star Event Feed
+#### Issue #13 — GraphQL Subscriptions: Live Star Event Feed
 **Concepts:** GraphQL Subscriptions, PubSub, WebSocket transport  
 Replace the WebSocket-based activity feed (Issue #8) with a proper GraphQL Subscription — `subscription { newStarEvent }`. The real-time feature is now expressed cleanly in GraphQL using the same transport layer. This is exactly what production systems like GitHub's own API use.
 

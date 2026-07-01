@@ -1,0 +1,12 @@
+{
+  "name": "devlog",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A platform where developers connect their GitHub account and get a real-time, analytics-style dashboard of their coding activity.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sxryadipta",
+  "license": "ISC"
+}

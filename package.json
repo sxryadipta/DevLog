@@ -5,7 +5,9 @@
   "description": "A platform where developers connect their GitHub account and get a real-time, analytics-style dashboard of their coding activity.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-raw": "node server-raw.js"
+
   },
   "author": "sxryadipta",
   "license": "ISC"

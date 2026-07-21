@@ -6,3 +6,6 @@ const myServer = http.createServer((req,res) => {
   res.end("Hi Surya!")
 }).listen(8000);
 console.log("Server has started at port 8000");
+
+const myUrl = url.parse("https://api.github.com/sxryadipta");
+console.log(myUrl);

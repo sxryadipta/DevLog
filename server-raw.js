@@ -27,8 +27,16 @@ async function fetchData() {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const jsonData = await response.json();
-    fs.appendFile()
+    fs.appendFile(
+      "github.json",
+      JSON.stringify(jsonData, null, 2),
+      (err) => {
+        if (err) console.error(err);
+        else console.log("Data written successfully!");
+      }
+    );
   }
+  
   
   catch (error) {
     console.error('Failed to fetch data:', error);

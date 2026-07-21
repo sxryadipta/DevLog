@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server-raw.js"
+    "server": "node server-raw.js"
 
   },
   "author": "sxryadipta",

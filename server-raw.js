@@ -4,6 +4,7 @@ import url from "url";
 
 const myServer = http.createServer((req,res) => {
   res.write("Hi Surya!")
+  res.end()
 }).listen(8000);
 console.log("Server has started at port 8000");
 

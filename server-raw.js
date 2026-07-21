@@ -16,18 +16,18 @@ const myServer = http.createServer((req,res) => {
 }).listen(8000);
 console.log("Server has started at port 8000");
 
-const myUrl = url.parse("https://api.github.com/sxryadipta");
+const myUrl = url.parse("https://api.github.com/users/sxryadipta");
 console.log(myUrl);
 fetchData();
 
 async function fetchData() {
   try{
-    const response = await fetch("https://api.github.com/sxryadipta");
+    const response = await fetch("https://api.github.com/users/sxryadipta");
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const jsonData = await response.json();
-    fs.appendFile("github.json", jsonData)
+    fs.appendFile()
   }
   
   catch (error) {

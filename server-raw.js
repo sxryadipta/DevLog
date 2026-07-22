@@ -7,7 +7,14 @@ const myServer = http.createServer((req,res) => {
   switch(req.url){
     case "/": res.end("Hi Surya!");
     break;
-    case "/activity": res.end("This will have the activity");
+    case "/activity": {
+      const activity = jsonActivity.slice(0, 5).map(event => ({
+        type: event.type,
+        repo: event.repo.name,
+        created_at: event.created_at
+      }));
+      res.end(JSON.stringify(activity));
+    }
     break;
     case "/stats": {
       const stats = {

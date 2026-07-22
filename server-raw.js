@@ -1,3 +1,4 @@
+import { error } from "console";
 import fs from "fs";
 import http from "http";
 import url from "url";
@@ -26,9 +27,13 @@ console.log("Server has started at port 8000");
 
 
 let jsonData;
+let jsonActivity;
+
 const myUrl = url.parse("https://api.github.com/users/sxryadipta");
 console.log(myUrl);
+
 fetchData();
+fetchActivity();
 
 async function fetchData() {
   try{
@@ -50,5 +55,26 @@ async function fetchData() {
   
   catch (error) {
     console.error('Failed to fetch data:', error);
+  }
+}
+
+async function fetchActivity() {
+  try {
+    const actiResponse = await fetch("https://api.github.com/users/sxryadipta/events")
+    if (!actiResponse.ok){
+      throw new Error(`HTTP Error! Status : ${actiResponse.status}`)
+    }
+    jsonActivity = await actiResponse.json();
+    fs.appendFile(
+      "activity.json",
+      JSON.stringify(jsonActivity, null, 2),
+      (err) => {
+        if (err) console.error(err);
+        else console.log("Data written successfully!");
+      }
+    )
+  }
+  catch (error) {
+    console.error("Failed to fetch activity:", error);
   }
 }

@@ -8,7 +8,15 @@ const myServer = http.createServer((req,res) => {
     break;
     case "/activity": res.end("This will have the activity");
     break;
-    case "/stats": res.end("This will have the stats");
+    case "/stats": {
+      const stats = {
+        public_repos : jsonData.public_repos,
+        followers : jsonData.followers,
+        following : jsonData.following,
+        bio : jsonData.bio
+      }
+      res.end(JSON.stringify(stats));
+    }
     break;
     default: res.end("404 not found")
   }
@@ -16,6 +24,8 @@ const myServer = http.createServer((req,res) => {
 }).listen(8000);
 console.log("Server has started at port 8000");
 
+
+let jsonData;
 const myUrl = url.parse("https://api.github.com/users/sxryadipta");
 console.log(myUrl);
 fetchData();
@@ -26,7 +36,7 @@ async function fetchData() {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    const jsonData = await response.json();
+    jsonData = await response.json();
     fs.appendFile(
       "github.json",
       JSON.stringify(jsonData, null, 2),

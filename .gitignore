@@ -1,0 +1,52 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+web_archiver/
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data and databases
+pids
+*.pid
+*.seed
+*.pid.lock
+.database
+*.db
+*.sqlite
+
+# Testing and coverage
+coverage/
+.nyc_output
+
+# Build and production outputs
+dist/
+build/
+.next/
+.out/
+
+# IDE, editors, and system files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+

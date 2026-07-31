@@ -8,5 +8,5 @@ app.get("/", (req, res) => {
 })
 
 app.get("/about", (req, res) =>{
-  res.send("I am Suryadipta Ghosh, also known as sxryadipta.")
+  res.send("I am Suryadipta Ghosh, also known as sxryadipta. I am a BTech Undergrad in Punjab Engineering College, Chandigarh")
 })
